@@ -2,12 +2,15 @@ package objektwerks
 
 import eu.timepit.refined.*
 import eu.timepit.refined.api.Refined
+import eu.timepit.refined.auto.*
 import eu.timepit.refined.numeric.*
 
 final case class Valid(map: Map[String, String]):
   def isValid: Boolean = map.isEmpty
 
-type EntityId = Long Refined Greater[-1]
+opaque type EntityId = Long Refined Greater[-1]
+object EntityId:
+  def apply(id: Long): EntityId = id
 
 sealed trait Entity:
   val id: EntityId
