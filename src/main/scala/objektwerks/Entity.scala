@@ -55,12 +55,12 @@ final case class Measurement(id: Long,
                              temperature: Int,
                              measured: Long) extends Entity
 
-final case class Chemical(id: Long :| GreaterEqual[0],
-                          poolId: Long :| Greater[0],
+final case class Chemical(id: Long,
+                          poolId: Long,
                           typeof: TypeOfChemical,
-                          amount: Double :| Greater[0.0],
+                          amount: Double,
                           unit: UnitOfMeasure,
-                          added: Long :| Greater[0]) extends Entity
+                          added: Long) extends Entity
 
 enum UnitOfMeasure:
   case gl, l, lb, kg, tablet
