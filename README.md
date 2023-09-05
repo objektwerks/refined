@@ -4,7 +4,9 @@ Refined
 
 WARNING
 -------
->As of 2023.9.5, Refined does not work correctly with Scala 3. See Entity for an example.
+>As of 2023.9.5, **Refined** does not work correctly with Scala 3.
+
+>See **Entity** and **EntityTest** for examples of the refined type - **EntityId**.
 
 Build
 -----
