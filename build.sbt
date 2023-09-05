@@ -6,6 +6,7 @@ libraryDependencies ++= {
   val ironVersion = "2.2.1"
   val jsoniterVersion = "2.23.4"
   Seq(
+    "eu.timepit" %% "refined" % "0.11.0",
     "io.github.iltotore" %% "iron" % ironVersion,
     "io.github.iltotore" %% "iron-jsoniter" % ironVersion,
     "com.github.plokhotnyuk.jsoniter-scala" %% "jsoniter-scala-core" % jsoniterVersion,
