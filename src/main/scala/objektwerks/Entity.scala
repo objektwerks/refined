@@ -24,11 +24,11 @@ final case class Account(id: Long,
                          activated: Long,
                          deactivated: Long) extends Entity
 
-final case class Pool(id: Long :| GreaterEqual[0],
-                      accountId: Long :| Greater[0],
-                      name: String :| MinLength[3], 
-                      built: Int :| Greater[0],
-                      volume: Int :| GreaterEqual[100],
+final case class Pool(id: Long,
+                      accountId: Long,
+                      name: String, 
+                      built: Int,
+                      volume: Int,
                       unit: UnitOfMeasure) extends Entity
 
 final case class Cleaning(id: Long :| GreaterEqual[0],
