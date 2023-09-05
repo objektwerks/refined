@@ -9,3 +9,7 @@ Build
 Test
 ----
 1. sbt clean test
+
+Resources
+---------
+* [Refined Github](https://github.com/fthomas/refined)
