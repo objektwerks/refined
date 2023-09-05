@@ -31,15 +31,15 @@ final case class Pool(id: Long,
                       volume: Int,
                       unit: UnitOfMeasure) extends Entity
 
-final case class Cleaning(id: Long :| GreaterEqual[0],
-                          poolId: Long :| Greater[0],
+final case class Cleaning(id: Long,
+                          poolId: Long,
                           brush: Boolean,
                           net: Boolean,
                           skimmerBasket: Boolean,
                           pumpBasket: Boolean,
                           pumpFilter: Boolean,
                           vacuum: Boolean,
-                          cleaned: Long :| Greater[0]) extends Entity
+                          cleaned: Long) extends Entity
 
 final case class Measurement(id: Long :| GreaterEqual[0],
                              poolId: Long :| Greater[0],
