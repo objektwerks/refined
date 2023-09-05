@@ -8,7 +8,7 @@ import org.scalatest.matchers.should.Matchers
 
 class EntityTest extends AnyFunSuite with Matchers:
   test("refine") {
-    val account = Account(id = 1,
+    val account = Account(id = 1, // Fails here; and with all EntityId fields!
                           license = UUID.randomUUID.toString,
                           emailAddress = "emailaddress@email.com",
                           pin = "1a2b3c!",
