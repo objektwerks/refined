@@ -3,6 +3,11 @@ package objektwerks
 import com.github.plokhotnyuk.jsoniter_scala.core.*
 import com.github.plokhotnyuk.jsoniter_scala.macros.*
 
+import eu.timepit.refined.*
+import eu.timepit.refined.api.Refined
+import eu.timepit.refined.auto.*
+import eu.timepit.refined.numeric.*
+
 final case class Valid(map: Map[String, String]):
   def isValid: Boolean = map.isEmpty
 
@@ -17,7 +22,7 @@ object Entity:
   given JsonValueCodec[Measurement] = JsonCodecMaker.make[Measurement]
   given JsonValueCodec[Chemical] = JsonCodecMaker.make[Chemical]
 
-final case class Account(id: Long,
+final case class Account(id: Long Refined Greater[6],
                          license: String,
                          emailAddress: String,
                          pin: String,
