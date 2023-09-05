@@ -3,12 +3,6 @@ package objektwerks
 import com.github.plokhotnyuk.jsoniter_scala.core.*
 import com.github.plokhotnyuk.jsoniter_scala.macros.*
 
-import io.github.iltotore.iron.*
-import io.github.iltotore.iron.jsoniter.given
-import io.github.iltotore.iron.constraint.collection.{FixedLength, MinLength}
-import io.github.iltotore.iron.constraint.numeric.{Greater, GreaterEqual, Interval}
-import io.github.iltotore.iron.constraint.string.ValidUUID
-
 final case class Valid(map: Map[String, String]):
   def isValid: Boolean = map.isEmpty
 
@@ -23,37 +17,12 @@ object Entity:
   given JsonValueCodec[Measurement] = JsonCodecMaker.make[Measurement]
   given JsonValueCodec[Chemical] = JsonCodecMaker.make[Chemical]
 
-final case class Account(id: Long :| GreaterEqual[0],
-                         license: String :| ValidUUID,
-                         emailAddress: String :| MinLength[3],
-                         pin: String :| FixedLength[7],
-                         activated: Long :| GreaterEqual[0],
-                         deactivated: Long :| GreaterEqual[0]) extends Entity
-
-/* This code blows up the Scala3 compiler!!!
-import scala.collection.mutable
-extension(account: Account)
-  def validate: Valid =
-    val map = mutable.Map.empty[String, String]
-    account.id.refineEither[GreaterEqual[0]].fold(left => map += "id" -> left, right => right)
-    account.license.refineEither[ValidUUID].fold(left => map += "license" -> left, right => right)
-    account.emailAddress.refineEither[MinLength[3]].fold(left => map += "emailAddress" -> left, right => right)
-    account.pin.refineEither[FixedLength[7]].fold(left => map += "pin" -> left, right => right)
-    account.activated.refineEither[GreaterEqual[0]].fold(left => map += "activated" -> left, right => right)
-    account.deactivated.refineEither[GreaterEqual[0]].fold(left => map += "deactivated" -> left, right => right)
-    Valid(map.toMap) */
-
-/* No given instance for constraint X, a common error above as well.
-extension(account: Account)
-  def validate: Either[String, Account] =
-    for
-      id           <- account.id.refineEither[GreaterEqual[0]]
-      license      <- account.license.refineEither[ValidUUID]
-      emailAddress <- account.emailAddress.refineEither[MinLength[3]]
-      pin          <- account.pin.refineEither[FixedLength[7]]
-      activated    <- account.activated.refineEither[GreaterEqual[0]]
-      deactivated  <- account.deactivated.refineEither[GreaterEqual[0]]
-    yield Account(id, license, emailAddress, pin, activated, deactivated) */
+final case class Account(id: Long,
+                         license: String,
+                         emailAddress: String,
+                         pin: String,
+                         activated: Long,
+                         deactivated: Long) extends Entity
 
 final case class Pool(id: Long :| GreaterEqual[0],
                       accountId: Long :| Greater[0],
