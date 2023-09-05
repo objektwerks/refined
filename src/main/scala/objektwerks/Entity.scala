@@ -10,7 +10,7 @@ final case class Valid(map: Map[String, String]):
 
 opaque type EntityId = Long Refined Greater[-1]
 object EntityId:
-  def apply(id: Long): EntityId = id
+  def apply(id: Long): EntityId = id // Fails here! A type alias fails as well.
 
 sealed trait Entity:
   val id: EntityId
