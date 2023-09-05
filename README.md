@@ -1,2 +1,3 @@
-# refined
-Refined feature test using Scala 3.
+Refined
+-------
+>Refined feature test using Scala 3.
