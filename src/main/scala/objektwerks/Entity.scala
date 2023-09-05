@@ -11,8 +11,10 @@ import eu.timepit.refined.numeric.*
 final case class Valid(map: Map[String, String]):
   def isValid: Boolean = map.isEmpty
 
+type EntityId = Long Refined Greater[-1]
+
 sealed trait Entity:
-  val id: Long
+  val id: EntityId
 
 object Entity:
   given JsonValueCodec[Entity] = JsonCodecMaker.make[Entity]
@@ -22,7 +24,7 @@ object Entity:
   given JsonValueCodec[Measurement] = JsonCodecMaker.make[Measurement]
   given JsonValueCodec[Chemical] = JsonCodecMaker.make[Chemical]
 
-final case class Account(id: Long Refined Greater[6],
+final case class Account(id: EntityId,
                          license: String,
                          emailAddress: String,
                          pin: String,
