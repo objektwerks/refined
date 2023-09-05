@@ -1,4 +1,4 @@
-name := "iron"
+name := "refined"
 version := "0.1-SNAPSHOT"
 scalaVersion := "3.3.1-RC7"
 organization := "objektwerks"
