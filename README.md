@@ -2,7 +2,7 @@ Refined
 -------
 >Refined feature test using Scala 3.
 
-WARNING
+Warning
 -------
 >As of 2023.9.5, **Refined** does not work correctly with Scala 3.
 
