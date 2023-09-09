@@ -1,6 +1,6 @@
 name := "refined"
 version := "0.1-SNAPSHOT"
-scalaVersion := "3.3.1-RC7"
+scalaVersion := "3.3.1"
 organization := "objektwerks"
 libraryDependencies ++= {
   val jsoniterVersion = "2.23.4"
