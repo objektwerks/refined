@@ -6,7 +6,7 @@ libraryDependencies ++= {
   val jsoniterVersion = "2.23.4"
   Seq(
     "eu.timepit" %% "refined" % "0.11.0",
-    "org.scalatest" %% "scalatest" % "3.2.16" % Test
+    "org.scalatest" %% "scalatest" % "3.2.17" % Test
   )
 }
 scalacOptions ++= Seq(
