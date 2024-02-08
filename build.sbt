@@ -4,7 +4,7 @@ scalaVersion := "3.4.0-RC4"
 organization := "objektwerks"
 libraryDependencies ++= {
   Seq(
-    "eu.timepit" %% "refined" % "0.11.0",
+    "eu.timepit" %% "refined" % "0.11.1",
     "org.scalatest" %% "scalatest" % "3.2.17" % Test
   )
 }
