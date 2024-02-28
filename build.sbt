@@ -5,7 +5,7 @@ organization := "objektwerks"
 libraryDependencies ++= {
   Seq(
     "eu.timepit" %% "refined" % "0.11.1",
-    "org.scalatest" %% "scalatest" % "3.2.17" % Test
+    "org.scalatest" %% "scalatest" % "3.2.18" % Test
   )
 }
 scalacOptions ++= Seq(
