@@ -1,6 +1,6 @@
 name := "refined"
 version := "0.1-SNAPSHOT"
-scalaVersion := "3.6.2-RC3"
+scalaVersion := "3.6.2"
 organization := "objektwerks"
 libraryDependencies ++= {
   Seq(
